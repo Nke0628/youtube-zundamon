@@ -1,4 +1,10 @@
-import { Img, staticFile, useCurrentFrame, useVideoConfig, interpolate } from "remotion";
+import {
+  Img,
+  staticFile,
+  useCurrentFrame,
+  useVideoConfig,
+  interpolate,
+} from "remotion";
 import { DEFAULT_CHARACTERS, CharacterId } from "../config";
 import { SETTINGS, AVAILABLE_IMAGES } from "../settings.generated";
 
@@ -12,7 +18,7 @@ interface CharacterProps {
 const getImageFileName = (
   characterId: string,
   emotion: string,
-  mouthOpen: boolean
+  mouthOpen: boolean,
 ): string => {
   const state = mouthOpen ? "open" : "close";
   const availableFiles = AVAILABLE_IMAGES[characterId] || [];
@@ -78,6 +84,14 @@ export const Character: React.FC<CharacterProps> = ({
   // 設定ファイルのuseImagesフラグをチェック
   const hasImage = SETTINGS.character.useImages;
 
+  // キャラクター別の高さ上書き対応
+  const heightOverrides = (
+    SETTINGS.character as { heightOverrides?: Record<string, number> }
+  ).heightOverrides;
+  const characterHeight =
+    (heightOverrides && heightOverrides[characterId]) ??
+    SETTINGS.character.height;
+
   return (
     <div
       style={{
@@ -92,7 +106,7 @@ export const Character: React.FC<CharacterProps> = ({
         <Img
           src={staticFile(currentImage)}
           style={{
-            height: SETTINGS.character.height,
+            height: characterHeight,
             objectFit: "contain",
             transform: characterConfig.flipX ? "scaleX(-1)" : "none",
           }}

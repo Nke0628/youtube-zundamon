@@ -31,6 +31,7 @@ interface VideoSettings {
   };
   character: {
     height: number;
+    heightOverrides?: Record<string, number>;
     useImages: boolean;
     imagesBasePath: string;
   };

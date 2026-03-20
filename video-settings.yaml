@@ -54,6 +54,12 @@ character:
   # コンテンツを大きく表示したい場合は小さくする
   height: 275
 
+  # キャラクターごとの高さ上書き（省略可）
+  # 指定したキャラクターのみ個別にサイズを変更できる
+  heightOverrides:
+    zundamon: 900
+    metan: 800
+
   # キャラクター画像を使用するか
   # false: プレースホルダー表示
   # true: 画像を使用
@@ -96,7 +102,7 @@ video:
 # カラー設定（黒板風デザイン）
 # -------------------------------------------
 colors:
-  background: "#ffffff"    # 外側の白背景
-  text: "#ffffff"          # 白文字
-  zundamon: "#228B22"      # フォレストグリーン（暗め）
-  metan: "#FF1493"         # ディープピンク
+  background: "#ffffff" # 外側の白背景
+  text: "#ffffff" # 白文字
+  zundamon: "#228B22" # フォレストグリーン（暗め）
+  metan: "#FF1493" # ディープピンク

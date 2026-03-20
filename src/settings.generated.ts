@@ -20,6 +20,10 @@ export const SETTINGS = {
   },
   "character": {
     "height": 275,
+    "heightOverrides": {
+      "zundamon": 900,
+      "metan": 800
+    },
     "useImages": true,
     "imagesBasePath": "images"
   },
@@ -50,11 +54,15 @@ export const AVAILABLE_IMAGES: Record<string, string[]> = {
   ],
   "metan": [
     "mouth_close.png",
-    "mouth_open.png"
+    "mouth_close_bk.png",
+    "mouth_open.png",
+    "mouth_open_bk.png"
   ],
   "zundamon": [
     "mouth_close.png",
-    "mouth_open.png"
+    "mouth_close_bk.png",
+    "mouth_open.png",
+    "mouth_open_bk.png"
   ]
 };
 
